@@ -10,6 +10,7 @@ namespace Cats
 
         public HouseCat(string name, double weight) : base(weight)
         {
+            Console.WriteLine("Create cat with weight " + name);
             Name = name;
         }
 
@@ -20,9 +21,18 @@ namespace Cats
             return !Hungry && !Tired;
         }
 
+        //this overides the noise method in the Parent class Cat and replaces it with new return  
         public override string Noise()
         {
-            return "Hello, my name is " + Name + "!";
+            if (IsSatisfied())
+            {
+                return "Hello, my name is " + Name + "!"; // return this string if the cat has eaten and is satisfied 
+
+            }
+            else
+            {
+                return base.Noise();// prints meow 
+            }
         }
 
         public string Purr()

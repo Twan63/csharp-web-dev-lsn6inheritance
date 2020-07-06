@@ -9,6 +9,8 @@ namespace Cats
         public double Weight { get; set; }
         public string Family { get; } = "Felidae";
 
+        //has a single parameter that has a constructor that takes a single parameter of type double
+        //this can not generate a new instance because of inheritance 
         public Cat(double weight)
         {
             Weight = weight;
@@ -31,8 +33,9 @@ namespace Cats
 
             Hungry = false;
         }
-
-        public virtual string Noise()
+        //this overides the method of the same name in the parent Class Cat
+        //question why replacing override with abstract breaks the Noise method witin the cat class
+        public abstract string Noise()
         {
             return "Meow!";
         }
